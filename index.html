@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>tomato-ai🍅 | 多機能Discord Bot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cream: #FFF6EC;
+    --cream-card: #FFFFFF;
+    --tomato: #E8583F;
+    --tomato-deep: #C23B2B;
+    --leaf: #6E8F4E;
+    --leaf-deep: #4C6B36;
+    --ink: #3D2B1F;
+    --ink-soft: #7A6656;
+    --blush: #FFE3D3;
+    --border: rgba(61,43,31,0.08);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --cream: #201510;
+      --cream-card: #2B1D16;
+      --ink: #FBEFE4;
+      --ink-soft: #CBB6A5;
+      --blush: #3A281E;
+      --border: rgba(255,255,255,0.08);
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; }
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: "Nunito", sans-serif;
+    line-height: 1.6;
+  }
+  .wrap { max-width: 980px; margin: 0 auto; padding: 0 24px; }
+
+  /* HERO */
+  .hero {
+    padding: 72px 0 56px;
+    text-align: center;
+  }
+  .avatar {
+    width: 96px; height: 96px; margin: 0 auto 20px;
+  }
+  .hero h1 {
+    font-family: "Fredoka", sans-serif;
+    font-weight: 700;
+    font-size: clamp(2.2rem, 7vw, 3.2rem);
+    margin: 0 0 12px;
+    color: var(--tomato-deep);
+  }
+  .hero p.tag {
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    max-width: 46ch;
+    margin: 0 auto 30px;
+  }
+  .cta-row { display: flex; gap: 12px; justify-content: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 1rem;
+    text-decoration: none; padding: 15px 28px; border-radius: 999px;
+    transition: transform .15s ease;
+  }
+  .btn:active { transform: scale(0.97); }
+  .btn-primary { background: var(--tomato); color: #fff; box-shadow: 0 10px 22px -8px rgba(200,60,40,.55); }
+  .btn-secondary { background: var(--cream-card); color: var(--ink); border: 1px solid var(--border); }
+
+  .stats {
+    display: flex; justify-content: center; gap: 28px; margin-top: 34px; flex-wrap: wrap;
+  }
+  .stats div { text-align: center; }
+  .stats .num { font-family: "Fredoka", sans-serif; font-weight: 700; font-size: 1.4rem; color: var(--tomato); }
+  .stats .label { font-size: .82rem; color: var(--ink-soft); }
+
+  /* SECTION */
+  section.block { padding: 30px 0; }
+  .block h2 {
+    font-family: "Fredoka", sans-serif; font-weight: 600; font-size: 1.55rem;
+    text-align: center; margin: 0 0 6px;
+  }
+  .block .lede { text-align: center; color: var(--ink-soft); margin: 0 0 30px; }
+
+  .grid {
+    display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;
+  }
+  @media (max-width: 720px) { .grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 460px) { .grid { grid-template-columns: 1fr; } }
+
+  .card {
+    background: var(--cream-card); border: 1px solid var(--border);
+    border-radius: 18px; padding: 20px;
+  }
+  .card .emoji { font-size: 1.5rem; display: block; margin-bottom: 8px; }
+  .card h3 { font-family: "Fredoka", sans-serif; font-size: .98rem; margin: 0 0 4px; }
+  .card p { font-size: .85rem; color: var(--ink-soft); margin: 0; }
+
+  .help-box {
+    background: linear-gradient(160deg, var(--blush), var(--cream-card));
+    border-radius: 22px; padding: 28px; text-align: center; margin-top: 10px;
+  }
+  .help-box code {
+    background: rgba(0,0,0,0.08); padding: 3px 8px; border-radius: 6px; font-size: .95rem;
+  }
+
+  footer {
+    text-align: center; padding: 46px 24px 60px; color: var(--ink-soft); font-size: .85rem;
+  }
+  footer .btn { margin-top: 16px; }
+</style>
+</head>
+<body>
+
+<main class="wrap">
+
+  <section class="hero">
+    <svg class="avatar" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <circle cx="60" cy="62" r="46" fill="var(--tomato)"/>
+      <circle cx="46" cy="58" r="6" fill="#fff"/>
+      <circle cx="74" cy="58" r="6" fill="#fff"/>
+      <path d="M42 74c6 6 30 6 36 0" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none"/>
+      <path d="M60 18c-6-10-16-14-26-13 3 9 10 14 18 15" stroke="var(--leaf)" stroke-width="5" stroke-linecap="round" fill="none"/>
+      <path d="M60 18c6-10 16-14 26-13-3 9-10 14-18 15" stroke="var(--leaf)" stroke-width="5" stroke-linecap="round" fill="none"/>
+    </svg>
+    <h1>tomato-ai🍅</h1>
+    <p class="tag">荒らし対策からAI雑談、娯楽コマンドまで。サーバー運営に必要なものを全部まとめた、オールインワンDiscord Botです。</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1552273300405882970&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener">➕ サーバーに追加</a>
+      <a class="btn btn-secondary" href="https://discord.gg/qjmATeVFfq" target="_blank" rel="noopener">💬 開発コミュニティに参加</a>
+    </div>
+    <div class="stats">
+      <div><div class="num">90+</div><div class="label">コマンド数</div></div>
+      <div><div class="num">15</div><div class="label">機能カテゴリ</div></div>
+      <div><div class="num">無料</div><div class="label">料金</div></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <h2>できること</h2>
+    <p class="lede">カテゴリごとに、こんな機能が揃っています</p>
+    <div class="grid">
+      <div class="card"><span class="emoji">🛡️</span><h3>荒らし対策</h3><p>チャンネル大量作成・レイド・無断Bot追加を自動検知しBAN</p></div>
+      <div class="card"><span class="emoji">🤖</span><h3>Bot対策</h3><p>迷惑Botの連投・リンクを自動ブロック、ホワイトリスト対応</p></div>
+      <div class="card"><span class="emoji">🔨</span><h3>モデレーション</h3><p>警告・キック・BAN・タイムアウト・処罰ログ</p></div>
+      <div class="card"><span class="emoji">🚫</span><h3>NG/リンクフィルター</h3><p>指定ワードや未許可リンクを自動削除</p></div>
+      <div class="card"><span class="emoji">💬</span><h3>AI雑談</h3><p>指定チャンネルでAIが会話の流れをくみながら返信</p></div>
+      <div class="card"><span class="emoji">👋</span><h3>歓迎・自動ロール</h3><p>入室時の歓迎メッセージと自動ロール付与</p></div>
+      <div class="card"><span class="emoji">✅</span><h3>認証パネル</h3><p>ボタン/リアクションで認証、ロール自動付与</p></div>
+      <div class="card"><span class="emoji">🎭</span><h3>リアクションロール</h3><p>絵文字を押すだけでロール取得</p></div>
+      <div class="card"><span class="emoji">🎫</span><h3>チケット</h3><p>個別相談用の非公開チャンネルを自動作成</p></div>
+      <div class="card"><span class="emoji">📌</span><h3>固定メッセージ</h3><p>チャンネル最下部に常に案内を表示</p></div>
+      <div class="card"><span class="emoji">🎉</span><h3>娯楽コマンド</h3><p>サイコロ・おみくじ・しりとり・数当てなど20種類以上</p></div>
+      <div class="card"><span class="emoji">🧰</span><h3>実用ツール</h3><p>翻訳・天気・計算・QRコード・Wikipedia検索</p></div>
+      <div class="card"><span class="emoji">🎁</span><h3>抽選・誕生日</h3><p>ギブアウェイ企画と誕生日お祝い通知</p></div>
+      <div class="card"><span class="emoji">📅</span><h3>予定リマインダー</h3><p>指定日時にお知らせ、再起動しても消えない</p></div>
+      <div class="card"><span class="emoji">📊</span><h3>統計・レベル</h3><p>発言でXPが貯まるレベル機能とサーバー統計</p></div>
+    </div>
+  </section>
+
+  <section class="block">
+    <div class="help-box">
+      <p style="margin:0 0 6px; font-weight:700; font-family:'Fredoka',sans-serif;">コマンドの詳しい一覧は</p>
+      <p style="margin:0;">Bot導入後、サーバー内で <code>/help</code> と入力するといつでも確認できます</p>
+    </div>
+  </section>
+
+  <footer>
+    <div>🍅 気になったら、まずはサーバーに追加してみてください 🍅</div>
+    <a class="btn btn-primary" href="https://discord.com/oauth2/authorize?client_id=1552273300405882970&permissions=8&integration_type=0&scope=bot+applications.commands" target="_blank" rel="noopener">➕ サーバーに追加</a>
+  </footer>
+
+</main>
+
+</body>
+</html>
